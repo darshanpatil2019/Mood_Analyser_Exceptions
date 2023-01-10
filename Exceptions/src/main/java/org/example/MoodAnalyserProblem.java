@@ -8,7 +8,6 @@ public class MoodAnalyserProblem {
     //Default Constructor
     public MoodAnalyserProblem() {
         message = "";
-
     }
 
     //Parameterized Constructor to pass message as parameter
@@ -16,22 +15,25 @@ public class MoodAnalyserProblem {
         this.message = message;
     }
 
-    public static void main(String[] args) {
+    //MAIN METHOD AND THROW CUSTOM EXCEPTION
+    public static void main(String[] args) throws MoodAnalysisException {
         System.out.println("Welcome to Mood Analyzer Problem");
     }
 
-    //Method to Analyse the mood
-    public String analyzeMood() {
-        {
-            try {
-                if (message.contains("Happy")) {
-                    return "Happy";
-                } else {
-                    return "Sad";
-                }
-            } catch (NullPointerException e) {
-                return "Happy";
+    //method to throw custom exceptions
+    public String analyseMood(Object o) throws MoodAnalysisException {
+        try {
+            if (message.length() == 0) {
+                throw new MoodAnalysisException(MoodAnalysisException.MoodAnalysisCustomException.EMPTY, "Please Enter Proper Mood");
             }
+            if (message.contains("Happy")) {
+                return "Happy";
+            } else {
+                return "Sad";
+            }
+        } catch (NullPointerException e) {
+            //return "happy";
+            throw new MoodAnalysisException(MoodAnalysisException.MoodAnalysisCustomException.NULL, "Please Enter Proper Mood");
         }
     }
 }
