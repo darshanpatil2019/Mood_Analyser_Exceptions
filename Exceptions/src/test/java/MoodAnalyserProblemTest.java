@@ -32,28 +32,24 @@ public class MoodAnalyserProblemTest {
 
     //TC-3.1 Given Null Mood should throw MoodAnalysisException
     @Test
-    public void givenNull_MoodShould_ThrowException() throws MoodAnalysisException {
+    public void givenNull_MoodShould_ThrowException() {
         MoodAnalyserProblem moodAnalyser = new MoodAnalyserProblem(null);
-        try
-        {
+        try {
             moodAnalyser.analyseMood(null);
-        }catch (MoodAnalysisException e)
-        {
-            Assert.assertEquals(MoodAnalysisException.MoodAnalysisCustomException.NULL,e.type);
+        } catch (MoodAnalysisException e) {
+            Assert.assertEquals(MoodAnalysisException.MoodAnalysisCustomException.NULL, e.type);
         }
     }
 
     //TC-3.2 Given Empty Mood should throw MoodAnalysisException
     @Test
-    public void givenEmpty_MoodShould_ThrowException() throws MoodAnalysisException {
+    public void givenEmpty_MoodShould_ThrowException() {
         MoodAnalyserProblem moodAnalyser = new MoodAnalyserProblem("");
 
-        try
-        {
+        try {
             moodAnalyser.analyseMood("");
-        }catch (MoodAnalysisException e)
-        {
-            Assert.assertEquals(MoodAnalysisException.MoodAnalysisCustomException.EMPTY,e.type);
+        } catch (MoodAnalysisException e) {
+            Assert.assertEquals(MoodAnalysisException.MoodAnalysisCustomException.EMPTY, e.type);
         }
     }
 }
